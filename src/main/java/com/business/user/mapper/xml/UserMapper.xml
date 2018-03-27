@@ -4,8 +4,8 @@
 
 	<sql id="userProperty">
 		a.id AS "id",
-		a.use_rname AS "userName",
-		a.password AS "password"
+		a.user_name AS "userName",
+		a.password AS "password",
 		a.create_date AS "createDate",
 		a.update_date AS "updateDate",
 		a.remarks AS "remarks"
@@ -15,7 +15,7 @@
 
 	</sql>
 
-	<select id="get" parameterType="String">
+	<select id="get" parameterType="String" resultType="User">
 		SELECT
 			<include refid="userProperty"/>
 		FROM tp_user a
@@ -23,7 +23,7 @@
 		WHERE a.id = #{0}
 	</select>
 
-	<select id="getList">
+	<select id="getList" resultType="User">
 		SELECT
 			<include refid="userProperty"/>
 		FROM tp_user a
@@ -33,7 +33,7 @@
 		</where>
 	</select>
 
-	<select id="getAllList">
+	<select id="getAllList" resultType="User">
 		SELECT
 		<include refid="userProperty"/>
 		FROM tp_user a
