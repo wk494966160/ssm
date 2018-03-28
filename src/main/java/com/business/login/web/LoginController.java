@@ -11,11 +11,22 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 public class LoginController {
+
+
+    /**
+     * 跳转默认前端页面
+     * @return
+     */
+    @RequestMapping("")
+    public String index(HttpServletRequest request){
+        return "login/index";
+    }
+
     /**
      * 跳转登录页面
      * @return
      */
-    @RequestMapping("")
+    @RequestMapping("login")
     public String login(User user, HttpServletRequest request){
         return "login/login";
     }
